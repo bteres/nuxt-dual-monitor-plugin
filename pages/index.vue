@@ -4,18 +4,7 @@ const items = ref([...Array(10).keys()]);
 
 <template>
   <div>
-    <h1>How to use multiple screens</h1>
-    <h1>{{ $hello("world") }}</h1>
-    <div>
-      <div>
-        Permission Status:
-        <span id="permissionStatus">{{ $screenDetails.value }}</span>
-      </div>
-      <div>
-        Screens Available:
-        <span id="screensAvail">{{ $numScreens }}</span>
-      </div>
-    </div>
+    <h1>Dual Screen Display</h1>
     <button
       v-if="
         $isMultiScreenSupported.value &&
@@ -37,7 +26,7 @@ const items = ref([...Array(10).keys()]);
       Cancel
     </button>
     <div v-for="item in items">
-      <button @click="$create(`/posts/${item}`)">
+      <button @click="$openLink(`/posts/${item}`)">
         {{ item }}
       </button>
     </div>

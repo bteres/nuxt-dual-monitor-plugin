@@ -1,8 +1,9 @@
 <script setup>
-let t = ref({ opener: true });
+const { $secondWindowName } = useNuxtApp();
+let thisWindow = ref({ name: $secondWindowName });
 
 if (process.browser) {
-  t.value = window;
+  thisWindow.value = window;
 }
 </script>
 
@@ -11,7 +12,7 @@ if (process.browser) {
     <div
       class="header"
       style="background-color: black; color: white; font-size: xx-large"
-      v-if="!t?.opener"
+      v-if="!(thisWindow?.name === $secondWindowName)"
     >
       Header
     </div>
